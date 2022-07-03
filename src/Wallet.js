@@ -11,6 +11,7 @@ export default function Wallet(){
     const [entries, setEntries] = useState([])
     const [refreshAxios, setRefreshAxios] = useState(false)
     const [total, setTotal] = useState(0)
+    const navigate = useNavigate();
     const config = {
         headers: {
             "Authorization": `Bearer ${user.token}` //Padrão da API (Bearer Authentication)
@@ -28,18 +29,35 @@ export default function Wallet(){
     },[refreshAxios, user]);
 
     function ShowEntries({amount, description, day, _id}) {
-        console.log(entries)
         return (
             <Line id={_id}>
                 <Day>{day}</Day>
                 <Description><h2>{description}</h2></Description>
-                <Amount style={amount > 0 ? {color:"green"} : {color:"red"}}><p>{amount.toFixed(2).replace(".",",").replace("-","")}</p><ion-icon name="close-outline"></ion-icon></Amount>
+                <Amount style={amount > 0 ? {color:"green"} : {color:"red"}}>
+                    <p>{amount.toFixed(2).replace(".",",").replace("-","")}</p>
+                    <ion-icon onClick={() => removeEntry({_id})} name="close-outline"></ion-icon>
+                </Amount>
                 
             </Line>
         )
     }
 
-    console.log(typeof(total))
+    function removeEntry({_id}){
+        const confirm = window.confirm(`Tem certeza que quer excluir este lançamento?`)
+        if(confirm){
+            axios.delete(`http://localhost:5000/entries/${_id}`, {
+                headers: {
+                    "Authorization": `Bearer ${user.token}`
+                  }
+                }).then(res =>{
+                    setRefreshAxios(!refreshAxios)
+                }).catch(err => {
+                console.error('Não foi possível apagar mensagem!');
+                console.error(err);
+              });
+        }
+    }
+
 
     if (entries === [] || entries === null || entries.length === 0) {
 
