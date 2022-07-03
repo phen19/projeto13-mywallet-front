@@ -25,9 +25,11 @@ export default function Login (){
             setUser(response.data)
             navigate("/wallet");
         });
-        requisicaoPost.catch((error) => {alert(error.response.data.message)
+        requisicaoPost.catch((error) => {alert(error.response.data)
         })
     }
+
+    console.log(user)
 
     return(
         <>
@@ -73,7 +75,7 @@ export default function Login (){
             placeholder::{
                 font-size: 20px;
                 color: #DBDBDB;
-               
+                font-family: 'Raleway', sans-serif;
             }
             button{
                 width:326px;
