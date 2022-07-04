@@ -18,7 +18,7 @@ export default function Wallet(){
 
     useEffect(() => {
         if (user !== undefined) {
-        const requisicao = axios.get("http://localhost:5000/entries", config);
+        const requisicao = axios.get("https://back-projeto-13-my-wallet.herokuapp.com/entries", config);
         requisicao.then((response) =>{
                 setEntries(response.data.entries);
                 setTotal(Number(response.data.balance));
@@ -43,7 +43,7 @@ export default function Wallet(){
     function removeEntry({_id}){
         const confirm = window.confirm(`Tem certeza que quer excluir este lançamento?`)
         if(confirm){
-            axios.delete(`http://localhost:5000/entries/${_id}`, {
+            axios.delete(`https://back-projeto-13-my-wallet.herokuapp.com/entries/${_id}`, {
                 headers: {
                     "Authorization": `Bearer ${user.token}`
                   }

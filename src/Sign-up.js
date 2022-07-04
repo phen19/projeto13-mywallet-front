@@ -22,7 +22,7 @@ export default function Signup (){
                     };
         
         const requisicaoPost = axios.post(
-          "http://localhost:5000/register",
+          "https://back-projeto-13-my-wallet.herokuapp.com/register",
           data
         );
         requisicaoPost.then(() => {

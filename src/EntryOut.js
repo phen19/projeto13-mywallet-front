@@ -21,7 +21,7 @@ export default function EntryOut(){
           }
     
         const requisicaoPost = axios.post(
-          "http://localhost:5000/entryout",
+          "https://back-projeto-13-my-wallet.herokuapp.com/entryout",
           data,
           config
         );
