@@ -67,9 +67,9 @@ export default function Wallet(){
                     <h1>Olá, {user.name}</h1>
                     <Link to="/" style={{textDecoration:"none"}}><ion-icon style={{color:"#FFFFFF"}}name="exit-outline"></ion-icon></Link>
                 </Header>
-                <Flow>
+                <NoJournal>
                     <h1>Não há registros de entrada ou saída</h1>
-                </Flow>
+                </NoJournal>
                 <Buttons>
                 <Link to="/in" style={{textDecoration:"none"}}>
                     <Entry>
@@ -160,6 +160,27 @@ const Flow = styled.div `   height:446px;
                                 font-size: 20px;
                                 text-align:center;
                             }
+`
+
+const NoJournal = styled.div ` 
+
+                            height:446px;
+                            width: 326px;
+                            background-color: #FFFFFF;
+                            border-radius: 5px;
+                            display: flex;
+                            flex-direction: column;
+                            position: relative;
+                            justify-content: center;
+                            align-items: center;
+
+                            h1{
+                                height: 46px;
+                                width: 180px;
+                                color: #868686;
+                                font-size: 20px;
+                                text-align:center;
+                                }
 `
 const Buttons = styled.div `width: 326px;
                             display: flex;

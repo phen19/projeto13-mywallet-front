@@ -53,8 +53,9 @@ const Container = styled.form ` background-color: #8C11BE;
                     width: 100vw;
                     font-family: 'Raleway', sans-serif;
                     display:flex;
+                    align-items: center;
                     flex-direction: column;
-                    padding-left: 26px;
+                    box-sizing:border-box;
 
 
                     h1{

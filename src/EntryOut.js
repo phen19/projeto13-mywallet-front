@@ -39,10 +39,10 @@ export default function EntryOut(){
         <>
        
         <Container onSubmit = {e=> Save(e)}>
-                <h1>Nova entrada</h1>
+                <h1>Nova saída</h1>
                 <input type="text"  placeholder="Valor" onChange={(e) => setAmount(parseFloat(e.target.value))} required/>
                 <input type="text"  placeholder="Descrição" value={description} onChange={(e) => setDescription(e.target.value)} required/>
-                <button type = "submit"> Salvar entrada</button>
+                <button type = "submit"> Salvar saída</button>
         </Container>
         </>
     )
@@ -53,8 +53,9 @@ const Container = styled.form ` background-color: #8C11BE;
                     width: 100vw;
                     font-family: 'Raleway', sans-serif;
                     display:flex;
+                    align-items: center;
                     flex-direction: column;
-                    padding-left: 26px;
+                    box-sizing: border-box;
 
 
                     h1{

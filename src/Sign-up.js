@@ -73,7 +73,7 @@ export default function Signup (){
                 font-family: 'Saira Stencil One', cursive;
                 font-size: 32px;
                 color: #FFFFFF;
-                margin-top: 160px;
+                margin-top: 96px;
                 margin-bottom: 40px;
             }
 
