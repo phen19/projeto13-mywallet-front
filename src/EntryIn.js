@@ -8,13 +8,12 @@ export default function EntryIn(){
 
     const [amount, setAmount] = useState("");
     const [description, setDescription] = useState("")
-    const { user, setUser } = useContext(UserContext);
+    const { user } = useContext(UserContext);
     const navigate = useNavigate();
 
     function Save(e) {
         e.preventDefault()
         let data = {amount: amount, description: description};
-        console.log(data)
         const config = {
             headers: {
                 "Authorization": `Bearer ${user.token}` //Padrão da API (Bearer Authentication)

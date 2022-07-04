@@ -5,7 +5,7 @@ import Signup from "./Sign-up.js"
 import Wallet from "./Wallet.js"
 import EntryIn from "./EntryIn.js"
 import EntryOut from "./EntryOut.js"
-import UserContext from "./UserContext";
+import UserContext from "./UserContext.js";
 import { useState} from 'react';
 
 export default function App() {

@@ -2,16 +2,14 @@ import styled from "styled-components";
 import { useState, useContext, useEffect} from 'react';
 import { Link } from "react-router-dom";
 import UserContext from "./UserContext";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 export default function Wallet(){
 
-    const { user, setUser } = useContext(UserContext);
+    const { user } = useContext(UserContext);
     const [entries, setEntries] = useState([])
     const [refreshAxios, setRefreshAxios] = useState(false)
     const [total, setTotal] = useState(0)
-    const navigate = useNavigate();
     const config = {
         headers: {
             "Authorization": `Bearer ${user.token}` //Padrão da API (Bearer Authentication)
@@ -32,7 +30,7 @@ export default function Wallet(){
         return (
             <Line id={_id}>
                 <Day>{day}</Day>
-                <Description><h2>{description}</h2></Description>
+                <Description><h2 style={{color:"#000000"}}>{description}</h2></Description>
                 <Amount style={amount > 0 ? {color:"green"} : {color:"red"}}>
                     <p>{amount.toFixed(2).replace(".",",").replace("-","")}</p>
                     <ion-icon onClick={() => removeEntry({_id})} name="close-outline"></ion-icon>
@@ -59,6 +57,7 @@ export default function Wallet(){
     }
 
 
+
     if (entries === [] || entries === null || entries.length === 0) {
 
     return(
@@ -66,7 +65,7 @@ export default function Wallet(){
             <Container>
                 <Header>
                     <h1>Olá, {user.name}</h1>
-                    <ion-icon name="exit-outline"></ion-icon>
+                    <Link to="/" style={{textDecoration:"none"}}><ion-icon style={{color:"#FFFFFF"}}name="exit-outline"></ion-icon></Link>
                 </Header>
                 <Flow>
                     <h1>Não há registros de entrada ou saída</h1>
@@ -94,12 +93,12 @@ export default function Wallet(){
             <Container>
                 <Header>
                     <h1>Olá, {user.name}</h1>
-                    <ion-icon name="exit-outline"></ion-icon>
+                    <Link to="/" style={{textDecoration:"none"}}><ion-icon style={{color:"#FFFFFF"}} name="exit-outline"></ion-icon></Link>
                 </Header>
                 <Flow>
                     <Journal>
                     {entries.map( ({amount, description, day,_id}) => {return(
-                    <ShowEntries amount={amount} description={description} day={day} _id={_id} />
+                    <ShowEntries key={_id} amount={amount} description={description} day={day} _id={_id} />
             )})}
                     </Journal>
                 <Total>

@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import { useState, useContext} from 'react';
+import { useState} from 'react';
 import { Link } from "react-router-dom";
-import UserContext from "./UserContext";
 import { useNavigate } from "react-router-dom";
 import axios from "axios"
 
@@ -11,7 +10,6 @@ export default function Signup (){
     const [password, setPassword] = useState("")
     const [name, setName] = useState("")
     const [confirmPassword, setConfirmPassword] = useState("")
-    const { user, setUser } = useContext(UserContext);
     const navigate = useNavigate();
 
     function buttonSuccess(name, email, password, confirmPassword, navigate) {
@@ -30,7 +28,7 @@ export default function Signup (){
         requisicaoPost.then(() => {
           navigate("/");
         });
-        requisicaoPost.catch((error) => {alert(error.response.data.message)
+        requisicaoPost.catch((error) => {alert(error.response.data)
         });
     }
 
