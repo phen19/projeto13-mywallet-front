@@ -31,7 +31,7 @@ export default function Wallet(){
             <Line id={_id}>
                 <Day>{day}</Day>
                 <Description><h2 style={{color:"#000000"}}>{description}</h2></Description>
-                <Amount style={amount > 0 ? {color:"green"} : {color:"red"}}>
+                <Amount style={amount > 0 ? {color:"#03AC00"} : {color:"#C70000"}}>
                     <p>{amount.toFixed(2).replace(".",",").replace("-","")}</p>
                     <ion-icon onClick={() => removeEntry({_id})} name="close-outline"></ion-icon>
                 </Amount>
@@ -102,7 +102,7 @@ export default function Wallet(){
             )})}
                     </Journal>
                 <Total>
-                    <h1>SALDO</h1> <p style={total > 0 ?  {color:"green"} : {color:"red"}}>{total.toFixed(2).replace(".", ",").replace("-","")}</p>
+                    <h1>SALDO</h1> <p style={total > 0 ?  {color:"#03AC00"} : {color:"#C70000"}}>{total.toFixed(2).replace(".", ",").replace("-","")}</p>
                 </Total>
                 </Flow>
                 <Buttons>
@@ -248,7 +248,7 @@ const Description = styled.div `width: 170px;
                                     
                                 }
                                     `
-const Amount = styled.div ` width: 62px;
+const Amount = styled.div ` width: 84px;
                             box-sizing:border-box;
                             display:flex;
                             justify-content: flex-end;

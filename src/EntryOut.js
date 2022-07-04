@@ -40,7 +40,7 @@ export default function EntryOut(){
        
         <Container onSubmit = {e=> Save(e)}>
                 <h1>Nova saída</h1>
-                <input type="text"  placeholder="Valor" onChange={(e) => setAmount(parseFloat(e.target.value))} required/>
+                <input type="text"  placeholder="Valor" onChange={(e) => setAmount(parseFloat(e.target.value)*-1)} required/>
                 <input type="text"  placeholder="Descrição" value={description} onChange={(e) => setDescription(e.target.value)} required/>
                 <button type = "submit"> Salvar saída</button>
         </Container>
