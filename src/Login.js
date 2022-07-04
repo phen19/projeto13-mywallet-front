@@ -18,7 +18,7 @@ export default function Login (){
         let data = { email: email, password: password};
     
         const requisicaoPost = axios.post(
-          "http://localhost:5000/login",
+          "https://back-projeto-13-my-wallet.herokuapp.com/login",
           data
         );
         requisicaoPost.then((response) => {
